@@ -1,0 +1,21 @@
+<div class="container" ng-controller="AppCtrl as app">
+  <div>
+    <form role="form">
+      <br />
+      <input type="text" class="form-control" id="newTitle" placeholder="Give me an image title!"></input>
+      <br />
+      <button type="submit" class="btn btn-info" ng-click="app.addDat()">Post!</button>
+    </form>
+  </div>
+  <hr />
+  <div masonry>
+    <div width="300" height="300" class="masonry-brick" style="margin: 5px;" ng-repeat="dat in app.dats | orderBy: 'score':true">
+      <img width="200" height="200" src="{{ dat.image }}{{ dat.id }}"></img>
+      <div><span style="width:10px;">{{ dat.title }}</span><span><button class="btn btn-info" style="float: right;" ng-click="app.voteDat(dat)">Vote that up!</button></span></div>
+      <div>{{ dat.score }}</div>
+    </div>
+  </div>
+
+</div>
+
+
